@@ -78,7 +78,7 @@ Count_Turns = 0
 def checkwin(gameBoard):
     #This line of code is vital as it will retrieve the function endloop
     # from the global environment so then we can use it here to check
-    # If anyone has won
+    # If anyone has won, this line was found by research online
     global endloop
     """
     Checks for the x-axis and y-axis of the Matrix, if there is a sequence
