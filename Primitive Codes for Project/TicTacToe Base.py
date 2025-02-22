@@ -4,7 +4,7 @@ import random
 print("Welcome to the Tic Tac Toe game"
       "\nThis game will serve as base for the football inspired multiplayer versions")
 print("In this game, a single player will play against the computer")
-print("We reccomend to make the ouput screen bigger for better visibility")
+print("We recommend to make the output screen bigger for better visibility")
 print("-------------------------------------------------------------")
 print("-------------------------------------------------------------")
 #Now we create the possible numbers in the board, assigned to each of the positions
@@ -13,7 +13,8 @@ gameBoard = [[1,2,3], [4,5,6], [7,8,9]]
 # Now we define the number of rows and columns in the game
 rows = 3
 columns = 3
-# Now a function is defined in order to print the game board
+
+# Now a function is defined in order to print the game board, using the array defined previously
 def printboard():
     """
     Function that will print the Tic Tac Toe game board
@@ -29,6 +30,8 @@ def printboard():
     # We can print the string in the next line
     print("\n______________")
 
+# Now we create a function that will modify the game board based on the inputs received by
+# both the python CPU and the user itself
 def modgameboard(num, turn):
     """
     Function that will modify the game board accordingly to the number
@@ -70,6 +73,8 @@ endloop = False
 #assing the turn to the corresponding player
 Count_Turns = 0
 
+# Now we define a function that will check if any of the combinations by both the Python CPU
+# and the user are valid for winning the game, and therefore returning the winner
 def checkwin(gameBoard):
     #This line of code is vital as it will retrieve the function endloop
     # from the global environment so then we can use it here to check
@@ -142,7 +147,7 @@ def checkwin(gameBoard):
         endloop = True
 
 # Now we have to address each one of the turns after the checkwin function so we check for a win in each turn
-# and also develop the logic behind every turn
+# and also develop the logic behind every turn, both for the Python CPU and the user
 while endloop == False:
     #It's 'X' turn if we take the turn divided by two and remainder is equal to 1
     if Count_Turns % 2 == 1:
