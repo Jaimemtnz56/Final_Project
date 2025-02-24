@@ -1,4 +1,3 @@
-
 print("Welcome to the Tic Tac Toe game"
       "\nThis game will serve as base for the football inspired multiplayer versions")
 print("In this game, a single player will play against the computer")
