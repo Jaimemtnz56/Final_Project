@@ -1,5 +1,3 @@
-#Import a random choice from the Python CPU
-import random
 
 print("Welcome to the Tic Tac Toe game"
       "\nThis game will serve as base for the football inspired multiplayer versions")
@@ -13,6 +11,18 @@ gameBoard = [[1,2,3], [4,5,6], [7,8,9]]
 # Now we define the number of rows and columns in the game
 rows = 3
 columns = 3
+
+#Import a random choice from the Python CPU, using a function will restrict the import random
+# to just the function that we have just defined, therefore preventing pollution of the other
+# files restricting the CPU choosing a number for every game, only when called
+def random_choice(numbers):
+    """
+    It makes the Python CPU choose a number from the list of numbers provided
+    :param numbers: The list of integers from 1 to 9 that corresponds to a slot in the game board
+    :return: An integer number that corresponds to a slot in the game board
+    """
+    import random
+    return random.choice(numbers)
 
 # Now a function is defined in order to print the game board, using the array defined previously
 def printboard():
@@ -191,7 +201,7 @@ while endloop == False:
             #Adress the 'O' turns, or the turns by the Python CPU
             while True:
                 #CPU will pick from the list provided by numbers
-                ChoicePython = random.choice(Numbers)
+                ChoicePython = random_choice(Numbers)
                 print("\n CPU chose:", ChoicePython)
                 #If the CPU made a valid choice, then introduce their choice
                 if ChoicePython in Numbers:
