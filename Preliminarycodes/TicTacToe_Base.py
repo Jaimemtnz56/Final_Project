@@ -150,7 +150,7 @@ def checkwin(gameBoard):
         endloop = True
         printboard()
 # Now we have to address each one of the turns after the checkwin function so we check for a win in each turn and also develop the logic behind every turn, both for the Python CPU and the user
-while endloop == False:
+while endloop == False and Count_Turns < 9:
         # Player's turn (using 'X')
         if Count_Turns % 2 == 1:
             printboard()
@@ -187,5 +187,8 @@ while endloop == False:
                     Count_Turns = Count_Turns + 1
                     # Now that we have the logic to operate the game we can break out of the loop, as it is while loop
                     break
+if endloop == False:
+    print("It's a tie!")
+    printboard()
     # Now we have all the code necessary for the Tic Tac Toe game against Python
 
