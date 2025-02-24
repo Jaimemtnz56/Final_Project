@@ -23,8 +23,7 @@ def random_choice(numbers):
 def printboard():
     """
     Function that will print the Tic Tac Toe game board
-    :return: A matrix with the game board and the
-    coordinates of the array, in different lines
+    :return: A matrix with the game board and the coordinates of the array, in different lines
     """
     for x in range(rows):
         print("\n______________")
@@ -37,14 +36,10 @@ def printboard():
 # Now we create a function that will modify the game board based on the inputs received by both the python CPU and the user itself.
 def modgameboard(num, turn):
     """
-    Function that will modify the game board accordingly to the number
-    introduced and the turn that is playing at the moment
-    :param num: Num will be an integer between 1 and 9, that will
-    be the number corresponding to a certain position in the game board
-    :param turn: Turn will identify the player that is introducing the
-    integer assigning 'X' or 'O' to the corresponding position
-    :return: The updated version of the game board after the input
-    received by either player.
+    Function that will modify the game board accordingly to the number introduced and the turn that is playing at the moment.
+    :param num: Num will be an integer between 1 and 9, that will be the number corresponding to a certain position in the game board
+    :param turn: Turn will identify the player that is introducing the integer assigning 'X' or 'O' to the corresponding position
+    :return: The updated version of the game board after the input received by either player.
     """
     num -=1
     #The assignment of numbers corresponds to a certain coordinate in the matrix of the game board [0][0] will be top left, with the first number being the rows and the second number being the columns
@@ -76,8 +71,7 @@ def checkwin(gameBoard):
     global endloop
     """
     Checks for every possible straight line combination of three 'X' or 'O'
-    through the x-axis, y-axis or both. If the function finds it will end the game and 
-    determine the winner.
+    through the x-axis, y-axis or both. If the function finds it will end the game and determine the winner.
     :param gameBoard: The Matrix used for the game board
     :return: The player that has won the Tic Tac Toe game (Player or CPU)
     """
