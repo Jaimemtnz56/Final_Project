@@ -113,7 +113,7 @@ def checkwin(gameBoard):
             print("Player 2 wins!")
         endloop = True
         printboard()
-# Now from the previous
+# Now from the previous syntax for the loops, adapt it to the lack of CPU, two players are included
 while not endloop and Count_Turns < 9:
     printboard()
     # Alternate turns: even turns for Player 1 ('X'), odd turns for Player 2 ('O')
