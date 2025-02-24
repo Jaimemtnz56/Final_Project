@@ -166,36 +166,42 @@ def checkwin(gameBoard):
 # Now we have to address each one of the turns after the checkwin function so we check for a win in each turn
 # and also develop the logic behind every turn, both for the Python CPU and the user
 while endloop == False:
-    #It's 'X' turn if we take the turn divided by two and remainder is equal to 1
-    if Count_Turns % 2 == 1:
-        printboard()
-        # \n again to get a new line, and int to transform input
-        picknumber = int(input("\n Choose a number from 1 to 9: "))
-        # Now validate the input
-        if picknumber >= 1 or picknumber <= 9:
-            modgameboard(picknumber, 'X')
-            #remove the number picked in turn from possibilities:
-            Numbers.remove(picknumber)
-            checkwin(gameBoard) # checks if someone has won the game
-        else:
-            #If the input is invalid print the following
-            print("Invalid input, please introduce an integer between 1 and 9")
-        Count_Turns = Count_Turns + 1
-    else:
-        #Adress the 'O' turns, or the turns by the Python CPU
-        while True:
-            #CPU will pick from the list provided by numbers
-            ChoicePython = random.choice(Numbers)
-            print("\n CPU chose:", ChoicePython)
-            #If the CPU made a valid choice, then introduce their choice
-            if ChoicePython in Numbers:
-                modgameboard(ChoicePython, 'O')
-                #Remove the number from the list of Possible Numbers
-                Numbers.remove(ChoicePython)
+        # Player's turn (using 'X')
+        if Count_Turns % 2 == 1:
+            printboard()
+            # Use a loop so the player does not lose the turn on invalid input
+            try:
+                picknumber = int(input("\nChoose a number from 1 to 9: "))
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
+                # We use continue to start a new loop which will determine if the number is available
+                continue
+            if picknumber not in Numbers:
+                print("That slot has already been taken, please choose another one.")
+            elif 1 <= picknumber <= 9:
+                modgameboard(picknumber, 'X')
+                Numbers.remove(picknumber)
                 checkwin(gameBoard)
-                Count_Turns = Count_Turns + 1
-                # Now that we have the logic to operate the game
-                # we can break out of the loop, as it is while loop
-                break
-# Now we have all the code necessary for the Tic Tac Toe game against Python
+                # Only change turn if the input has been valid, an integer between 1 and 9
+                Count_Turns += 1
+            else:
+                print("Invalid input, please choose an integer between 1 and 9.")
+        # CNow we address the CPU's turn (using 'O')
+        else:
+            #Adress the 'O' turns, or the turns by the Python CPU
+            while True:
+                #CPU will pick from the list provided by numbers
+                ChoicePython = random.choice(Numbers)
+                print("\n CPU chose:", ChoicePython)
+                #If the CPU made a valid choice, then introduce their choice
+                if ChoicePython in Numbers:
+                    modgameboard(ChoicePython, 'O')
+                    #Remove the number from the list of Possible Numbers
+                    Numbers.remove(ChoicePython)
+                    checkwin(gameBoard)
+                    Count_Turns = Count_Turns + 1
+                    # Now that we have the logic to operate the game
+                    # we can break out of the loop, as it is while loop
+                    break
+    # Now we have all the code necessary for the Tic Tac Toe game against Python
 
