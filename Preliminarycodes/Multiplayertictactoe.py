@@ -114,7 +114,7 @@ def checkwin(gameBoard):
         endloop = True
         printboard()
 # Now from the previous syntax for the loops, adapt it to the lack of CPU, two players are included
-while not endloop and Count_Turns < 9:
+while endloop == False and Count_Turns < 9:
     printboard()
     # Alternate turns: even turns for Player 1 ('X'), odd turns for Player 2 ('O')
     if Count_Turns % 2 == 0:
@@ -131,7 +131,6 @@ while not endloop and Count_Turns < 9:
             print("Invalid input. Please enter an integer.")
             continue
         symbol = 'O'
-
     if picknumber not in Numbers:
         print("That slot has already been taken or is invalid, please choose another one.")
         continue
@@ -142,7 +141,7 @@ while not endloop and Count_Turns < 9:
         Count_Turns += 1
     else:
         print("Invalid input, please choose an integer between 1 and 9.")
-
-if not endloop:
+    # Added the variable symbol so we can further simplify the programming of the turns logic for each, using continue to break off the current loop and start a new one
+if endloop == False:
     print("It's a tie!")
     printboard()
