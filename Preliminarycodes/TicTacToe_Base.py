@@ -10,10 +10,7 @@ gameBoard = [[1,2,3], [4,5,6], [7,8,9]]
 # Now we define the number of rows and columns in the game
 rows = 3
 columns = 3
-
-#Import a random choice from the Python CPU, using a function will restrict the import random
-# to just the function that we have just defined, therefore preventing pollution of the other
-# files restricting the CPU choosing a number for every game, only when called
+#Import a random choice from the Python CPU, using a function will restrict the import random, to just the function that we have just defined, therefore preventing pollution of the other files restricting the CPU choosing a number for every game, only when called.
 def random_choice(numbers):
     """
     It makes the Python CPU choose a number from the list of numbers provided
@@ -22,7 +19,6 @@ def random_choice(numbers):
     """
     import random
     return random.choice(numbers)
-
 # Now a function is defined in order to print the game board, using the array defined previously
 def printboard():
     """
@@ -38,9 +34,7 @@ def printboard():
     # With this next print function with the \n command
     # We can print the string in the next line
     print("\n______________")
-
-# Now we create a function that will modify the game board based on the inputs received by
-# both the python CPU and the user itself
+# Now we create a function that will modify the game board based on the inputs received by both the python CPU and the user itself.
 def modgameboard(num, turn):
     """
     Function that will modify the game board accordingly to the number
@@ -53,9 +47,7 @@ def modgameboard(num, turn):
     received by either player.
     """
     num -=1
-    #The assignment of numbers corresponds to a certain coordinate in the
-    #matrix of the game board [0][0] will be top left, with the first
-    #number being the rows and the second number being the columns
+    #The assignment of numbers corresponds to a certain coordinate in the matrix of the game board [0][0] will be top left, with the first number being the rows and the second number being the columns
     if num == 0:
         gameBoard[0][0] = turn
     elif num == 1:
@@ -74,20 +66,13 @@ def modgameboard(num, turn):
         gameBoard[2][1] = turn
     elif num == 8:
         gameBoard[2][2] = turn
-
-# We define this variable in advance,
-# which is going to be to end the game
+# We define this variable in advance, which is going to be to end the game.
 endloop = False
-#This variable here will keep track of the number of turns and
-#assing the turn to the corresponding player
+#This variable here will keep track of the number of turns and assigning the turn to the corresponding player
 Count_Turns = 0
-
-# Now we define a function that will check if any of the combinations by both the Python CPU
-# and the user are valid for winning the game, and therefore returning the winner
+# Now we define a function that will check if any of the combinations by both the Python CPU and the user are valid for winning the game, and therefore returning the winner
 def checkwin(gameBoard):
-    #This line of code is vital as it will retrieve the function endloop
-    # from the global environment so then we can use it here to check
-    # If anyone has won, this line was found by research online
+    #This line of code is vital as it will retrieve the function endloop from the global environment so then we can use it here to check. If anyone has won, this line was found by research online
     global endloop
     """
     Checks for every possible straight line combination of three 'X' or 'O'
@@ -96,10 +81,7 @@ def checkwin(gameBoard):
     :param gameBoard: The Matrix used for the game board
     :return: The player that has won the Tic Tac Toe game (Player or CPU)
     """
-    # X-axis wins: We use the different coordinates of the matrix to
-    # address the possibility of a win, using the variable endloop, to
-    # finish the game and print the name of the player that wins, we
-    # have to address each possibility and coordinate to each player
+    # X-axis wins: We use the different coordinates of the matrix to address the possibility of a win, using the variable endloop, to finish the game and print the name of the player that wins, we have to address each possibility and coordinate to each player
     if gameBoard[0][0] == gameBoard[0][1] == gameBoard[0][2] == 'X':
         print("Player wins!")
         endloop = True
@@ -125,8 +107,7 @@ def checkwin(gameBoard):
         print("Python wins!")
         endloop = True
         printboard()
-    # Y-axis wins: Address the possibilities for wins
-    # across the Y-axis of the matrix, both for 'X' and 'O'
+    # Y-axis wins: Address the possibilities for wins across the Y-axis of the matrix, both for 'X' and 'O'
     if gameBoard[0][0] == gameBoard[1][0] == gameBoard[2][0] == 'X':
         print("Player wins!")
         endloop = True
@@ -151,10 +132,7 @@ def checkwin(gameBoard):
         print("Python wins!")
         endloop = True
         printboard()
-    # Cross-axis wins: There are two ways to win crossing the axis, one
-    # from top-left to bottom right and another one from top right to
-    # bottom left
-    # For top right to bottom left
+    # Cross-axis wins: There are two ways to win crossing the axis, one from top-left to bottom right and another one from top right to bottom left.
     if gameBoard[0][0] == gameBoard[1][1] == gameBoard[2][2] == 'X':
         print("Player wins!")
         endloop = True
@@ -171,9 +149,7 @@ def checkwin(gameBoard):
         print("Python wins!")
         endloop = True
         printboard()
-
-# Now we have to address each one of the turns after the checkwin function so we check for a win in each turn
-# and also develop the logic behind every turn, both for the Python CPU and the user
+# Now we have to address each one of the turns after the checkwin function so we check for a win in each turn and also develop the logic behind every turn, both for the Python CPU and the user
 while endloop == False:
         # Player's turn (using 'X')
         if Count_Turns % 2 == 1:
@@ -209,8 +185,7 @@ while endloop == False:
                     Numbers.remove(ChoicePython)
                     checkwin(gameBoard)
                     Count_Turns = Count_Turns + 1
-                    # Now that we have the logic to operate the game
-                    # we can break out of the loop, as it is while loop
+                    # Now that we have the logic to operate the game we can break out of the loop, as it is while loop
                     break
     # Now we have all the code necessary for the Tic Tac Toe game against Python
 
