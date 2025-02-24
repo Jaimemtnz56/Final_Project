@@ -81,10 +81,11 @@ def checkwin(gameBoard):
     # If anyone has won, this line was found by research online
     global endloop
     """
-    Checks for the x-axis and y-axis of the Matrix, if there is a sequence
-    of "X,X,X" or "O,O,O" in a straight line, then the player wins
+    Checks for every possible straight line combination of three 'X' or 'O'
+    through the x-axis, y-axis or both. If the function finds it will end the game and 
+    determine the winner.
     :param gameBoard: The Matrix used for the game board
-    :return: The player that has won the Tic Tac Toe game
+    :return: The player that has won the Tic Tac Toe game (Player or CPU)
     """
     # X-axis wins: We use the different coordinates of the matrix to
     # address the possibility of a win, using the variable endloop, to
@@ -93,42 +94,54 @@ def checkwin(gameBoard):
     if gameBoard[0][0] == gameBoard[0][1] == gameBoard[0][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[1][0] == gameBoard[1][1] == gameBoard[1][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[2][0] == gameBoard[2][1] == gameBoard[2][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     #Adress Possibility of Python Winning the game:
     elif gameBoard[0][0] == gameBoard[0][1] == gameBoard[0][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     elif gameBoard[1][0] == gameBoard[1][1] == gameBoard[1][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     elif gameBoard[2][0] == gameBoard[2][1] == gameBoard[2][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     # Y-axis wins: Address the possibilities for wins
     # across the Y-axis of the matrix, both for 'X' and 'O'
     if gameBoard[0][0] == gameBoard[1][0] == gameBoard[2][0] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][0] == gameBoard[1][0] == gameBoard[2][0] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][1] == gameBoard[1][1] == gameBoard[2][1] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][1] == gameBoard[1][1] == gameBoard[2][1] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][2] == gameBoard[1][2] == gameBoard[2][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][2] == gameBoard[1][2] == gameBoard[2][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     # Cross-axis wins: There are two ways to win crossing the axis, one
     # from top-left to bottom right and another one from top right to
     # bottom left
@@ -136,15 +149,19 @@ def checkwin(gameBoard):
     if gameBoard[0][0] == gameBoard[1][1] == gameBoard[2][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[0][0] == gameBoard[1][1] == gameBoard[2][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
     elif gameBoard[2][0] == gameBoard[1][1] == gameBoard[0][2] == 'X':
         print("Player wins!")
         endloop = True
+        printboard()
     elif gameBoard[2][0] == gameBoard[1][1] == gameBoard[0][2] == 'O':
         print("Python wins!")
         endloop = True
+        printboard()
 
 # Now we have to address each one of the turns after the checkwin function so we check for a win in each turn
 # and also develop the logic behind every turn, both for the Python CPU and the user
