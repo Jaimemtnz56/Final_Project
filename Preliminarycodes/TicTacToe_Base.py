@@ -187,6 +187,7 @@ while endloop == False and Count_Turns < 9:
                     Count_Turns = Count_Turns + 1
                     # Now that we have the logic to operate the game we can break out of the loop, as it is while loop
                     break
+# Add the possibility of a tie in the code
 if endloop == False:
     print("It's a tie!")
     printboard()
