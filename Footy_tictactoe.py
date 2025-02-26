@@ -250,7 +250,12 @@ def Footy_tictactoe():
             else:
                 current_team = Team_2
                 symbol = away_team
-            player_name = input(f"\n{current_team}, pick a player to try and score: ").strip() # The function strip eliminates all the useless spaces to be able to compare the names directly to the dictionary
+            player_name = input(f"\n{current_team}, pick a player to try and score (or type 'exit' to quit: ").strip()
+            if player_name.lower() == "exit":
+                print("Exiting game. Goodbye!")
+                endloop = True
+                break
+            # The function strip eliminates all the useless spaces to be able to compare the names directly to the dictionary
         # Check if the player picked is within the options in the dictionary
             if player_name not in player_to_cell:
                 print("That player is not available for the game!. Choose another option")
